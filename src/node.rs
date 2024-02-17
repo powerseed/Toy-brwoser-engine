@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use std::fmt::{Display, Formatter};
 use crate::ElementData::ElementData;
 use crate::NodeType::NodeType;
 
@@ -15,7 +16,7 @@ impl Node {
         }
     }
 
-    pub fn new_element(children: Vec<Node>, tag_name: String, attributes: HashMap<String, String>) -> Self {
+    pub fn new_element(tag_name: String, attributes: HashMap<String, String>, children: Vec<Node>) -> Self {
         Self {
             children,
             node_type: NodeType::Element(
@@ -24,4 +25,3 @@ impl Node {
         }
     }
 }
-

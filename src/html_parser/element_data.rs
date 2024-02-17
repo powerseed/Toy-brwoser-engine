@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use std::fmt::{Display, Formatter};
+use std::fmt::{Display};
 
 pub struct ElementData {
     tag_name: String,

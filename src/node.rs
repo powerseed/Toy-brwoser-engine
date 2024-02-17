@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::fmt::{Display, Formatter};
-use crate::ElementData::ElementData;
-use crate::NodeType::NodeType;
+use crate::element_data::ElementData;
+use crate::node_type::NodeType;
 
 pub struct Node {
     children: Vec<Node>,

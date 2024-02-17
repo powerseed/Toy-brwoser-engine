@@ -1,9 +1,9 @@
 mod node;
-mod NodeType;
-mod ElementData;
-mod Parser;
+mod node_type;
+mod element_data;
+mod parser;
+mod stylesheet;
 
 fn main() {
     println!("Hello, world!");
 }
-

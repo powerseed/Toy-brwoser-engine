@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 use crate::node::Node;
-use crate::NodeType::NodeType;
+use crate::node_type::NodeType;
+use crate::stylesheet::Stylesheet;
 
 pub struct Parser {
     content: String,
@@ -131,7 +132,7 @@ impl Parser {
 
 #[cfg(test)]
 mod tests {
-    use crate::Parser::Parser;
+    use crate::parser::Parser;
 
     #[test]
     fn test_is_eof() {

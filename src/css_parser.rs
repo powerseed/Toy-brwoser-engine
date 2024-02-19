@@ -7,13 +7,13 @@ use crate::css_parser::selector::Selector;
 use crate::css_parser::stylesheet::Stylesheet;
 use crate::general_parser::GeneralParser;
 
-mod stylesheet;
-mod rule;
-mod selector;
-mod declaration;
-mod declaration_value;
-mod length_unit;
-mod color_value;
+pub mod stylesheet;
+pub mod rule;
+pub mod selector;
+pub mod declaration;
+pub mod declaration_value;
+pub mod length_unit;
+pub mod color_value;
 
 pub struct CSSParser {
     general_parser: GeneralParser

@@ -2,9 +2,9 @@ use std::collections::HashMap;
 use crate::general_parser::GeneralParser;
 use crate::html_parser::node::Node;
 
-mod node;
-mod node_type;
-mod element_data;
+pub mod node;
+pub mod node_type;
+pub mod element_data;
 
 pub struct HTMLParser {
     general_parser: GeneralParser
@@ -107,7 +107,7 @@ mod tests {
     fn test_parse() {
         let mut parser = HTMLParser {
             general_parser: GeneralParser {
-                content: String::from("<html><body><h1>Title</h1><div id='main' class='test'><p>Hello <em>world</em>!</p></div></body></html>"),
+                content: String::from("<html><body><h1>Title</h1><div id='main' class='test_one test_two'><p>Hello <em>world</em>!</p></div></body></html>"),
                 current_position: 0
             }
         };

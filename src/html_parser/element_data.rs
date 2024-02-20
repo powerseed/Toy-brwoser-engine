@@ -3,7 +3,7 @@ use std::fmt::{Display};
 
 pub struct ElementData {
     pub tag_name: String,
-    attributes: HashMap<String, String>
+    pub(crate) attributes: HashMap<String, String>
 }
 
 impl ElementData {

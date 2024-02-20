@@ -1,5 +1,6 @@
 use std::fmt::{Display, Formatter};
 
+#[derive(Debug, Clone)]
 pub enum LengthUnit {
     Px
 }

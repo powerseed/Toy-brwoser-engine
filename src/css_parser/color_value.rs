@@ -1,5 +1,6 @@
 use std::fmt::{Display, Formatter};
 
+#[derive(Debug, Clone)]
 pub struct ColorValue {
     pub(crate) r: u8,
     pub(crate) g: u8,

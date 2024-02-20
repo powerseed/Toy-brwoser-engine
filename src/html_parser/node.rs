@@ -4,8 +4,8 @@ use crate::html_parser::element_data::ElementData;
 use crate::html_parser::node_type::NodeType;
 
 pub struct Node {
-    children: Vec<Node>,
-    node_type: NodeType
+    pub children: Vec<Node>,
+    pub node_type: NodeType
 }
 
 impl Node {

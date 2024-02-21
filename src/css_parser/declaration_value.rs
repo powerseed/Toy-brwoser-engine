@@ -2,7 +2,7 @@ use std::fmt::{Display, Formatter};
 use crate::css_parser::color_value::ColorValue;
 use crate::css_parser::length_unit::LengthUnit;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum DeclarationValue {
     Keyword(String),
     Length(f32, LengthUnit),
@@ -18,8 +18,6 @@ impl Display for DeclarationValue {
         }
     }
 }
-
-
 
 #[cfg(test)]
 mod tests {

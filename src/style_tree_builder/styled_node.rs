@@ -11,7 +11,7 @@ pub struct StyledNode<'a> {
 }
 
 impl<'a> StyledNode<'a> {
-    pub fn get_css_value_by_name(&self, css_name: String) -> Option<&DeclarationValue> {
+    fn get_css_value_by_name(&self, css_name: String) -> Option<&DeclarationValue> {
         return self.css_properties.get(&css_name)
     }
 

@@ -213,8 +213,17 @@ impl<'a> LayoutBox<'a> {
             parent_block_dimensions.content_area.height + parent_block_dimensions.content_area.y + self.dimensions.margin.top + self.dimensions.border.top + self.dimensions.padding.top;
     }
 
-    fn calculate_children() {
+    fn calculate_children(&mut self) {
+        for child in &mut self.children {
+            child.create_layout(&self.dimensions);
+            self.dimensions.content_area.height += child.dimensions.margin_box().height;
+        }
+    }
 
+    fn calculate_height(&mut self) {
+        if let Some(&Length(length, Px)) = self.styled_node.unwrap().get_css_value_by_name("height".to_string()) {
+            self.dimensions.content_area.height = length;
+        }
     }
 }
 

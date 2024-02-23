@@ -46,8 +46,8 @@ impl<'a> LayoutBox<'a> {
 
     fn create_block_layout(&mut self, parent_block_dimensions: &Dimensions) {
         self.calculate_width(parent_block_dimensions);
-        // self.calculate_position();
-        // self.calculate_children();
+        self.calculate_position(parent_block_dimensions);
+        self.calculate_children();
         // self.calculate_height();
     }
 
@@ -158,6 +158,63 @@ impl<'a> LayoutBox<'a> {
 
         self.dimensions.margin.left = margin_left.length_to_numerical_value();
         self.dimensions.margin.right = margin_right.length_to_numerical_value();
+    }
+
+    fn calculate_position(&mut self, parent_block_dimensions: &Dimensions) {
+        let styled_node = self.styled_node.unwrap();
+        let default_length = 0.0;
+
+        self.dimensions.margin.top = match styled_node.get_css_value_by_name("margin-top".to_string()) {
+            Some(margin_top) => {
+                margin_top.length_to_numerical_value()
+            },
+            _ => default_length
+        };
+
+        self.dimensions.margin.bottom = match styled_node.get_css_value_by_name("margin-bottom".to_string()) {
+            Some(margin_bottom) => {
+                margin_bottom.length_to_numerical_value()
+            },
+            _ => default_length
+        };
+
+        self.dimensions.border.top = match styled_node.get_css_value_by_name("border-top-width".to_string()) {
+            Some(border_top_width) => {
+                border_top_width.length_to_numerical_value()
+            },
+            _ => default_length
+        };
+
+        self.dimensions.border.bottom = match styled_node.get_css_value_by_name("border-bottom-width".to_string()) {
+            Some(border_bottom_width) => {
+                border_bottom_width.length_to_numerical_value()
+            },
+            _ => default_length
+        };
+
+        self.dimensions.padding.top = match styled_node.get_css_value_by_name("padding-top".to_string()) {
+            Some(padding_top) => {
+                padding_top.length_to_numerical_value()
+            },
+            _ => default_length
+        };
+
+        self.dimensions.padding.bottom = match styled_node.get_css_value_by_name("padding-bottom".to_string()) {
+            Some(padding_bottom) => {
+                padding_bottom.length_to_numerical_value()
+            },
+            _ => default_length
+        };
+
+        self.dimensions.content_area.x =
+            parent_block_dimensions.content_area.x + self.dimensions.margin.left + self.dimensions.border.left + self.dimensions.padding.left;
+
+        self.dimensions.content_area.y =
+            parent_block_dimensions.content_area.height + parent_block_dimensions.content_area.y + self.dimensions.margin.top + self.dimensions.border.top + self.dimensions.padding.top;
+    }
+
+    fn calculate_children() {
+
     }
 }
 

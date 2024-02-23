@@ -9,15 +9,15 @@ pub struct Dimensions {
 
 #[derive(Default)]
 pub struct Rectangle {
-    x: f32,
-    y: f32,
+    pub(crate) x: f32,
+    pub(crate) y: f32,
     pub(crate) width: f32,
-    height: f32
+    pub(crate) height: f32
 }
 #[derive(Default)]
 pub struct Size {
-    top: f32,
-    bottom: f32,
+    pub(crate) top: f32,
+    pub(crate) bottom: f32,
     pub(crate) left: f32,
     pub(crate) right: f32,
 }

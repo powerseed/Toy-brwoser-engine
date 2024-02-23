@@ -9,6 +9,19 @@ pub enum DeclarationValue {
     Color(ColorValue)
 }
 
+impl DeclarationValue {
+    pub fn length_to_numerical_value(&self) -> f32 {
+        match self {
+            DeclarationValue::Length(numerical_value, _) => numerical_value.clone(),
+            DeclarationValue::Keyword(keyword) => {
+                assert_eq!(keyword, "auto");
+                return 0.0;
+            }
+            _ => panic!("DeclarationValue is not of type Length. ")
+        }
+    }
+}
+
 impl Display for DeclarationValue {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {

@@ -8,7 +8,7 @@ mod layout_box;
 mod box_type;
 pub(crate) mod display_type;
 
-pub fn build_layout_tree(styled_node: StyledNode) -> LayoutBox {
+pub fn build_layout_tree<'a>(styled_node: &'a StyledNode) -> LayoutBox<'a> {
     let root_box_type = match styled_node.get_display_value() {
         DisplayType::Inline => BoxType::Inline,
         DisplayType::Block => BoxType::Block,
@@ -16,8 +16,9 @@ pub fn build_layout_tree(styled_node: StyledNode) -> LayoutBox {
     };
 
     let mut root_layout_box = LayoutBox::new(root_box_type);
+    root_layout_box.styled_node = Some(styled_node);
 
-    for child in styled_node.children {
+    for child in &styled_node.children {
         match child.get_display_value() {
             DisplayType::Inline => root_layout_box.get_inline_box().children.push(build_layout_tree(child)),
             DisplayType::Block => root_layout_box.children.push(build_layout_tree(child)),

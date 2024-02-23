@@ -12,7 +12,7 @@ impl Dimensions {
         return self.content_area.expanded_by(&self.padding);
     }
 
-    fn border_box(&self) -> Rectangle {
+    pub(crate) fn border_box(&self) -> Rectangle {
         return self.padding_box().expanded_by(&self.border);
     }
 
@@ -21,7 +21,7 @@ impl Dimensions {
     }
 }
 
-#[derive(Default)]
+#[derive(Default, Copy, Clone)]
 pub struct Rectangle {
     pub(crate) x: f32,
     pub(crate) y: f32,

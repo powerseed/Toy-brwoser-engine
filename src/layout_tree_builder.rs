@@ -3,9 +3,9 @@ use crate::layout_tree_builder::display_type::DisplayType;
 use crate::layout_tree_builder::layout_box::LayoutBox;
 use crate::style_tree_builder::styled_node::StyledNode;
 
-mod dimensions;
-mod layout_box;
-mod box_type;
+pub(crate) mod dimensions;
+pub(crate) mod layout_box;
+pub(crate) mod box_type;
 pub(crate) mod display_type;
 
 pub fn build_layout_tree<'a>(styled_node: &'a StyledNode) -> LayoutBox<'a> {
